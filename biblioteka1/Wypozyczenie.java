@@ -29,8 +29,6 @@ public class Wypozyczenie {
 	public String toString() {
 		return "Wypozyczenie [ksiazka=" + ksiazka + ", czytelnik=" + czytelnik + "]";
 	}
-	
-	
-	
+
 
 }

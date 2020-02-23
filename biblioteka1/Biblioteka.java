@@ -77,6 +77,15 @@ public class Biblioteka {
 
 	}
 
+	public void statusWypozyczen(czytelnik c){
+		if (wypozyczenia.contains(c)){
+			System.out.println("Czytelnik o podanym numerze karty ma wypożyczone książki");
+		}
+		else
+			System.out.println("Czytelnik o podanym numerze karty ma wypożyczone ksiażki");
+
+	}
+
 	
 	static Scanner sc = new Scanner(System.in);
 	
@@ -211,14 +220,68 @@ public class Biblioteka {
 				System.out.println(bib.wypozyczenia);
 			}
 			else if (wyborUzytkownika.equals("6")){
+				System.out.println("Oto lista wypożyczonych książek.");
+				System.out.println("Pozycję o którym indeksie chcesz zwrócić?");
+				System.out.println(bib.wypozyczenia);
+				int aaa = Integer.parseInt(getUserInput());
+				bib.wypozyczenia.remove(aaa);
+				System.out.println(bib.wypozyczenia);
+				System.out.println(bib.ksiazki);
+
+			}
+
+			else if (wyborUzytkownika.equals("7")){
 				System.out.println("Podaj swoje dane czytelnika.");
+				System.out.println("Imię: ");
+				String bb = (getUserInput());
+				System.out.println("Nazwisko: ");
+				String bb1 = (getUserInput());
+				System.out.println("Numer: ");
+				int bb2 = Integer.parseInt(getUserInput());
+				czytelnik bbb = new czytelnik(bb,bb1,bb2);
+				bib.statusWypozyczen(bbb);
+
+
+			}
+			else if (wyborUzytkownika.equals("8")){
+				System.out.println("Podaj dane książki której dostępność chcesz sprawdzić");
+				System.out.println("Autor: ");
+				String f = (getUserInput());
+				System.out.println("Tytuł: ");
+				String f1 = (getUserInput());
+				System.out.println("Isbn: ");
+				String f2 = (getUserInput());
+				System.out.println("Liczba egzemplarzy: ");
+				int f3 = Integer.parseInt(getUserInput());
+				System.out.println("Liczba wypożyczonych egzemplarzy: ");
+				int f4 = Integer.parseInt(getUserInput());
+
+				//Ksiazka ffff = new Ksiazka(f,f1,f2,null,null);
+				//bib.dostepnoscKsiazki(ffff);
+
+			}
+
+    	} while (!wyborUzytkownika.equalsIgnoreCase("x"));
+	
+		
+		
+		
+	}
+
+
+
+}
+
+
+/*
+System.out.println("Podaj swoje dane czytelnika.");
 				System.out.println("Imię: ");
 				String t = (getUserInput());
 				System.out.println("Nazwisko: ");
 				String t1 = (getUserInput());
 				System.out.println("Numer: ");
 				int t2 = Integer.parseInt(getUserInput());
-				System.out.println("Podaj informacje o ksiażce, ktora chcesz wypozyczyć.");
+				System.out.println("Podaj informacje o ksiażce, ktora chcesz zwrócić.");
 				System.out.println("Autor: ");
 				String y = (getUserInput());
 				System.out.println("Tytuł: ");
@@ -235,38 +298,4 @@ public class Biblioteka {
 				bib.zwrocKsiazke(yy,qq);
 				System.out.println("Oto lista wypożyczonych książek: ");
 				System.out.println(bib.wypozyczenia);
-
-			}
-
-			else if (wyborUzytkownika.equals("7")){
-
-
-			}
-			else if (wyborUzytkownika.equals("8")){
-				System.out.println("Podaj dane książki której dostępność chcesz sprawdzić");
-				System.out.println("Autor: ");
-				String f = (getUserInput());
-				System.out.println("Tytuł: ");
-				String f1 = (getUserInput());
-				System.out.println("Isbn: ");
-				String f2 = (getUserInput());
-				/*System.out.println("Liczba egzemplarzy: ");
-				int f3 = Integer.parseInt(getUserInput());
-				System.out.println("Liczba wypożyczonych egzemplarzy: ");
-				int f4 = Integer.parseInt(getUserInput());
-				*/
-				Ksiazka ffff = new Ksiazka(f,f1,f2,null,null);
-				bib.dostepnoscKsiazki(ffff);
-
-			}
-
-    	} while (!wyborUzytkownika.equalsIgnoreCase("x"));
-	
-		
-		
-		
-	}
-
-
-
-}
+ */
